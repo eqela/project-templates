@@ -1,0 +1,6 @@
+class is WebSiteServerMain:
+
+import sympathy.app
+
+main:
+	return new this().executeForHandler(new RootHandler(), args)

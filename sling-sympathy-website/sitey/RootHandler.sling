@@ -1,0 +1,14 @@
+class is WebSiteServerHandler #webapi:
+
+import sympathy
+
+GET ""
+{
+	var params = new DynamicMap()
+	params.set("title", "Hello world")
+	params.set("text", "Welcome to your website")
+	req.sendHTMLString(processTemplate("index.html.t", params))
+}
+
+GET "about":
+	req.sendHTMLString(processTemplate("about.html.t", null))

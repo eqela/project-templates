@@ -1,0 +1,15 @@
+class #webapi #main:
+
+GET "hello"
+{
+	req.sendJSONOK(new DynamicMap().set("value", "hello"))
+}
+
+POST "hello"
+{
+	var params = assert req.getBodyJSONMap():
+		req.sendJSONError(ServerError.invalidRequest())
+	var param = assert params.getString("param"):
+		req.sendJSONError(ServerError.invalidRequest())
+	req.sendJSONOK(new DynamicMap().set("value", param))
+}

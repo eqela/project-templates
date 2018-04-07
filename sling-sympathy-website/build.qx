@@ -1,0 +1,22 @@
+tool eqela:sling:r300
+tool igelle:tools:r3
+lib eqela:jkop:r3
+set name my-web-site
+set modulename sitey
+set version r1
+set pkgid ${name}-${version}
+
+release {
+	igelle:tools/delete build
+	eqela:sling/slingc -target=dotnet ${modulename} -libdir=${eqela:jkop}/src -output=build/${pkgid}
+	igelle:tools/cpto build/${pkgid}/resources ${modulename}/resources/*
+	igelle:tools/cpto build/${pkgid}/templates ${modulename}/templates/*
+	igelle:tools/delete build/${pkgid}/sling.module
+	igelle:tools/delete build/${pkgid}/src
+	igelle:tools/zipdir build/${pkgid}
+}
+
+run {
+	eqela:sling/slingc -target=dotnet ${modulename} -libdir=${eqela:jkop}/src -output=build/${pkgid}
+	exec build/${pkgid}/${modulename}.exe -debug -Otemplates=${modulename}/templates -Oresources=${modulename}/resources
+}

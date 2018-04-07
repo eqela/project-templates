@@ -1,0 +1,6 @@
+tool eqela:sling:r300
+lib eqela:jkop:r3
+
+build {
+	eqela:sling/slingc src/apiservery -target=mono -libdir=${eqela:jkop}/src -output=build/app/apiservery
+}
