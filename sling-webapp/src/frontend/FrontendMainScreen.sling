@@ -1,0 +1,8 @@
+import jco.kit
+
+class #jco #component:
+
+markup
+{
+	<h1>Hello World</h1>
+}

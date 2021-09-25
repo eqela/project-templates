@@ -1,0 +1,9 @@
+{
+	namespace "myname"
+	projectId "webapp"
+	title "Sling Web Application"
+	libraries [
+		"jk-server:0.26.0 for sushi"
+		"jco:0.6.0 for web6"
+	]
+}

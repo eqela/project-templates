@@ -1,0 +1,9 @@
+import jco.web
+
+class:
+
+main
+{
+	println "Initializing custom elements"
+	CustomElementManager.register("frontend-main", typeinfo FrontendMainScreen)
+}

@@ -1,0 +1,13 @@
+import jk.webapp
+
+class is WebAppRouter #webapi2:
+
+GET "/health"
+{
+	handleQuery(req, resp, func {
+		sendOk
+	})
+}
+
+main:
+	return new WebAppMain().execute(args, typeinfo this)
